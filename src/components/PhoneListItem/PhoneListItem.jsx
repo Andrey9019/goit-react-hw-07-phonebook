@@ -1,14 +1,22 @@
+import { useDispatch } from "react-redux"
 import { ButtonItem, ListItem } from "./PhoneListItem.style"
+import { removeContact } from "components/redux/contactsSlice";
 
 
-export const PhoneListItem = ({id,firstName,number,onRemove}) => {
+export const PhoneListItem = ({ id, firstName, number}) =>
+{
+  const dispatch = useDispatch()
+  const handleRemove = () => {
+dispatch(removeContact(id))
+  }
+
     return (
-        <ListItem key={id} >
-      {firstName}: {number}
+      <ListItem key={id} >
+        {firstName}: {number}
         <ButtonItem
-          onClick={() => onRemove(id)}>
-        Remove
-      </ButtonItem>
-    </ListItem>
-)
-}
+          onClick={handleRemove}>
+          Remove
+        </ButtonItem>
+      </ListItem>
+    )}
+  
