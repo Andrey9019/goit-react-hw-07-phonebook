@@ -7,8 +7,8 @@ import { filterValue, getFilter } from 'components/redux/filtersSlice';
 export const Filter = () => {
     
     const dispatch = useDispatch()
-    const handleFilter = (value, action) => {
-        dispatch(value.target.value)
+    const handleFilter = (value) => {
+        dispatch(filterValue(value))
     }
 
 const filter = useSelector(getFilter)

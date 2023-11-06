@@ -23,15 +23,13 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 export const Phonebook = () => {
   const dispatch = useDispatch()
   const contacts = useSelector(getContacts)
-
   const handleSubmit = inputValue => {
-    if (contacts.finnd(({ name }) => name === inputValue.name)) {
-      return   Notify.failure(`${inputValue.name} is already in your contact list`)
+    if (contacts.find(({ firstName }) => firstName === inputValue.firstName)) {
+      return   Notify.failure(`${inputValue.firstName} is already in your contact list`)
     }
     dispatch(addContact(inputValue))
-
-    }
-    (
+  }
+  return  (
       <FormContainer>
         <h1>Phonebook</h1>
         <Formik
