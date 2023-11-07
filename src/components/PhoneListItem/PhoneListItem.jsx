@@ -6,9 +6,7 @@ import { removeContact } from "components/redux/contactsSlice";
 
 export const PhoneListItem = ({ id, firstName, number}) =>
 {
-  console.log("id:", id);
-console.log("firstName:", firstName);
-console.log("number:", number);
+
 
   const dispatch = useDispatch()
   const handleRemove = () => {
