@@ -4,17 +4,14 @@ import { App } from 'components/App';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
-import { persistor, store } from 'components/redux/store';
-import { PersistGate } from 'redux-persist/integration/react';
+import { store } from 'components/redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={{}}>
-        <PersistGate loading={null} persistor={persistor}>
-          <App />
-          <GlobalStyle />
-        </PersistGate>
+        <App />
+        <GlobalStyle />
       </ThemeProvider>
     </Provider>
   </React.StrictMode>
