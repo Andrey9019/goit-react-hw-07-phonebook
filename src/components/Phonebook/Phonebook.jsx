@@ -3,8 +3,11 @@ import { Formik } from 'formik';
 import { ButtonForm, FormContainer,PhoneForm,StyledField ,FormErrorMes} from './Phonebook.style';
 import { Label } from 'components/Filter/Filter.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getContacts } from 'components/redux/contactsSlice';
+
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { addContact } from 'components/redux/operations';
+import { selectContacts } from 'components/redux/selectors';
 
  const phonebookSchema = Yup.object().shape({
    firstName: Yup.string()
@@ -22,7 +25,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const Phonebook = () => {
   const dispatch = useDispatch()
-  const contacts = useSelector(getContacts)
+  const contacts = useSelector(selectContacts)
   const handleSubmit = inputValue => {
     if (contacts.find(({ firstName }) => firstName === inputValue.firstName)) {
       return   Notify.failure(`${inputValue.firstName} is already in your contact list`)

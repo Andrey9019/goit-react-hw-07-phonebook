@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux"
 import { ButtonItem, ListItem } from "./PhoneListItem.style"
-import { removeContact } from "components/redux/contactsSlice";
+import { deleteContact } from "components/redux/operations";
 
 
 
@@ -10,7 +10,7 @@ export const PhoneListItem = ({ id, firstName, number}) =>
 
   const dispatch = useDispatch()
   const handleRemove = () => {
-dispatch(removeContact(id))
+dispatch(deleteContact(id))
   }
 
     return (
