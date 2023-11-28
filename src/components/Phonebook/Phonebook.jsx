@@ -8,11 +8,11 @@ import { addContact } from 'components/redux/operations';
 import { selectContacts } from 'components/redux/selectors';
 
  const phonebookSchema = Yup.object().shape({
-   firstName: Yup.string()
+   name: Yup.string()
      .min(2, 'Too Short!')
      .max(50, 'Too Long!')
      .required('Name is required'),
-     number: Yup.string()
+     phone: Yup.string()
        .matches(
   '[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}',
          'Enter valid symbols format xxx-xxx-xx-xx'
@@ -25,8 +25,8 @@ export const Phonebook = () => {
   const dispatch = useDispatch()
   const contacts = useSelector(selectContacts)
   const handleSubmit = inputValue => {
-    if (contacts.find(({ firstName }) => firstName === inputValue.firstName)) {
-      return   Notify.failure(`${inputValue.firstName} is already in your contact list`)
+    if (contacts.find(({ name }) => name === inputValue.name)) {
+      return   Notify.failure(`${inputValue.name} is already in your contact list`)
     }
     dispatch(addContact(inputValue))
   }
@@ -35,8 +35,8 @@ export const Phonebook = () => {
         <h1>Phonebook</h1>
         <Formik
           initialValues={{
-            firstName: '',
-            number: '',
+            name: '',
+            phone: '',
           }}
 
           validationSchema={phonebookSchema}
@@ -46,16 +46,16 @@ export const Phonebook = () => {
           }}>
           <PhoneForm>
             <Label >Name
-              <StyledField name="firstName" />
-              <FormErrorMes component="p" name="firstName" />
+              <StyledField name="name" />
+              <FormErrorMes component="p" name="name" />
             </Label>
                 
-            <Label >Number
-              <StyledField type="tel" name="number" />
-              <FormErrorMes component="p" name="number" />
+            <Label >Phone Number
+              <StyledField type="tel" name="phone" />
+              <FormErrorMes component="p" name="phone" />
             </Label>
         
-            <ButtonForm type="submit">Add Coontact</ButtonForm>
+            <ButtonForm type="submit">Add Contact</ButtonForm>
           </PhoneForm>
         </Formik>
       </FormContainer>
