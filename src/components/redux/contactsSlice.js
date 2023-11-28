@@ -10,7 +10,7 @@ const handlerRejected = state => {
   state.isLoading = false;
 };
 
-const ContactSlice = createSlice({
+const contactSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
@@ -46,4 +46,4 @@ const ContactSlice = createSlice({
   },
 });
 
-export const contactsReducer = ContactSlice.reducer;
+export const contactsReducer = contactSlice.reducer;

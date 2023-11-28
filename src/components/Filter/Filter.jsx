@@ -9,7 +9,7 @@ export const Filter = () => {
     const filter = useSelector(selectFilter)
 
     const handleFilter = (value) => {
-        dispatch(setFilter(value.target.value))
+        dispatch(setFilter(value.target.value.trim()))
 
     }
 
