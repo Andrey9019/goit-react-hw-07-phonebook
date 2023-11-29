@@ -4,8 +4,8 @@ import { Filter } from 'components/Filter/Filter'
 import { Container } from './App.style';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
 
-import { fetchContacts } from './redux/operations';
 
 
 

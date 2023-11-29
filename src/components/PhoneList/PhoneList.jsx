@@ -1,9 +1,11 @@
 import { PhoneListItem } from 'components/PhoneListItem/PhoneListItem';
 import { List } from './PhoneList.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilteredContacts } from 'components/redux/selectors';
+
 import { useEffect } from 'react';
-import { fetchContacts } from 'components/redux/operations';
+import { fetchContacts } from 'redux/operations';
+import { selectFilteredContacts } from 'redux/selectors';
+
 
 export const PhoneList = () => {
 
